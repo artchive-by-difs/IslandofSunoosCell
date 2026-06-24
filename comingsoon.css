@@ -1,0 +1,210 @@
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Pixelify Sans',sans-serif;
+
+  background-color:#DFF5EE;
+
+  background-image:
+    radial-gradient(
+      rgba(119,92,86,.35) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      rgba(119,92,86,.35) 4px,
+      transparent 4px
+    );
+
+  background-size:40px 40px;
+  background-position:0 0,20px 20px;
+
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+.container{
+
+  width:min(92%,550px);
+
+  text-align:center;
+
+  background:#FFD3D4;
+
+  border:3px solid #775C56;
+
+  border-radius:24px;
+
+  padding:30px;
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
+}
+
+/* logo */
+.container img{
+
+  width:min(280px,80%);
+  height:auto;
+
+  display:block;
+
+  margin:0 auto 10px;
+}
+
+/* title */
+
+h1{
+
+  color:#775C56;
+
+  font-size:1.8rem;
+
+  margin-bottom:10px;
+}
+
+/* subtitle */
+
+p{
+
+  color:#775C56;
+
+  font-size:1rem;
+
+  line-height:1.6;
+
+  max-width:420px;
+
+  margin:0 auto 25px;
+}
+
+/* countdown card */
+
+#countdown{
+
+  background:white;
+
+  border:3px dashed #775C56;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap:15px;
+}
+
+/* days */
+
+#countdown .days{
+
+  font-size:4rem;
+
+  color:#775C56;
+
+  font-weight:700;
+
+  line-height:1;
+}
+
+/* label */
+
+.days-label{
+
+  color:#775C56;
+
+  font-size:.95rem;
+
+  letter-spacing:.1em;
+}
+
+/* h m s */
+
+#countdown .time-parts{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+}
+
+.time-part{
+
+  background:#DFF5EE;
+
+  border-radius:14px;
+
+  min-width:80px;
+
+  padding:12px;
+}
+
+.time-part .value{
+
+  display:block;
+
+  font-size:1.6rem;
+
+  color:#775C56;
+}
+
+.time-part .label{
+
+  font-size:.8rem;
+
+  color:#775C56;
+}
+
+/* system text */
+
+.system-message{
+
+  margin-top:20px;
+
+  color:#775C56;
+
+  font-size:.9rem;
+
+  opacity:.8;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+  .container{
+
+    padding:24px;
+  }
+
+  h1{
+
+    font-size:1.5rem;
+  }
+
+  #countdown .days{
+
+    font-size:3rem;
+  }
+
+  .time-part{
+
+    min-width:70px;
+  }
+}

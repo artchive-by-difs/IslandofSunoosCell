@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Island of Sunoo's Cells - Event Closed</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="comingsoon.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.ibb.co.com/21F49PFt/header-3.png" alt="Event Closed" />
+    <h1>2026.06.24 - 2025.07.24<br>EVENT CLOSED</h1>
+    <p>Thank you for joining #IslandofSunoosCells 2026 !<br>
+     We appreciate your participation and love<3<span id="countdown"></span></p>
+  </div>     
+  
+      <script>
+    // Fungsi untuk memblokir shortcut tertentu dan F12
+  function disableShortcut(e) {
+    const key = e.key.toLowerCase();
+    const blockedKeys = ['u', 'c', 's', 'a', 'p'];
+
+    if (
+      (e.ctrlKey && blockedKeys.includes(key)) ||                 // Ctrl+U, C, S, A, P
+      (e.ctrlKey && e.shiftKey && key === 'i') ||                // Ctrl+Shift+I
+      (key === 'f12')                                             // F12
+    ) {
+      e.preventDefault();
+      alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+      return false;
+    }
+  }
+
+  // Blokir shortcut dan F12
+  document.addEventListener('keydown', disableShortcut);
+
+  // Blokir klik kanan
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+  });
+    </script>
+      
+            <!-- Tambahkan ini untuk Vercel Analytics -->
+      <script defer src="/_vercel/insights/script.js"></script>
+
+            <!-- Tambahkan ini untuk Vercel Speed Insight -->
+      <script defer src="/_vercel/speed-insights/script.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RBHQDQY3EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RBHQDQY3EW');
+</script>
+         
+</body>
+</html>
+
