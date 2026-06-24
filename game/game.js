@@ -3,43 +3,43 @@ const cellTypes = [
   {
     name: "Rational Cell",
     emoji: "🤓",
-    image: "https://i.ibb.co.com/MWf8stX/avatar-rationalcell.png"
+    image: "https://i.ibb.co.com/zWPnJjLM/avatar-rationalcell.png"
   },
 
   {
     name: "Delulu Cell",
     emoji: "😵‍💫",
-    image: "https://i.ibb.co.com/NgCq2bvK/avatar-delulucell.png"
+    image: "https://i.ibb.co.com/qF1YxHTt/avatar-delulucell.png"
   },
 
   {
     name: "Emotional Cell",
     emoji: "🥹",
-    image: "https://i.ibb.co.com/G3958Wnx/avatar-emotionalcell.png"
+    image: "https://i.ibb.co.com/SDNVDwFL/avatar-emotionalcell.png"
   },
 
   {
     name: "Hunger Cell",
     emoji: "😋",
-    image: "https://i.ibb.co.com/C5qjrWj4/avatar-hungercell.png"
+    image: "https://i.ibb.co.com/ymN8pv0s/avatar-hungercell.png"
   },
 
   {
     name: "Love Cell",
     emoji: "🥰",
-    image: "https://i.ibb.co.com/13gbr0t/avatar-lovecell.png"
+    image: "https://i.ibb.co.com/3YRWPyjt/avatar-lovecell.png"
   },
   
     {
     name: "Naughty Cell",
     emoji: "😏",
-    image: "https://i.ibb.co.com/dN3zN8g/avatar-naughty.png"
+    image: "https://i.ibb.co.com/CphpTrQ2/avatar-naughty.png"
   },
 
   {
     name: "Idol Cell",
     emoji: "😎",
-    image: "https://i.ibb.co.com/cSq113y7/avatar-idolcell.png"
+    image: "https://i.ibb.co.com/YTjYzJhd/avatar-idolcell.png"
   }
 
 ];
