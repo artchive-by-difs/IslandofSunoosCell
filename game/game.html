@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Island of Sunoo's Cell - Visitor Pass</title>
+  <link rel="stylesheet" href="game.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <section class="registration-section">
+    
+<h2>Visitor Registration</h2>
+
+<p class="registration-subtitle">
+    Create your visitor pass to gain access to the island ♡
+  </p>
+  </section>
+  
+<div class="wrapper">
+
+  <div class="panel">
+
+    <header class="site-header">
+
+  <img
+    src="https://i.ibb.co.com/21F49PFt/header-3.png"
+    alt="Island of Sunoo's Cell"
+    class="site-logo"
+  >
+
+</header>
+    
+    <h1>Cellmate Visitor System</h1>
+
+    <input
+      type="text"
+      id="visitorName"
+      placeholder="Enter your name..."
+    >
+
+    <button id="generateBtn">
+      Submit
+    </button>
+
+  </div>
+
+  <div class="card-section">
+
+    <div id="card" class="visitor-card">
+
+      <div class="ticket-top">
+        <span>VISITOR PASS</span>
+        <span class="barcode">
+         <img src="https://i.ibb.co.com/qLQp6k1m/QR-song-KSN.png" alt="QR code" border="0" width=50px
+        </span>
+      </div>
+
+      <div id="avatarArea" class="avatar">
+        <img src="https://i.ibb.co.com/r2KN3vg0/avatar-cellmate.png" alt="celmmate avatar" border="0">
+      </div>
+
+      <div class="info">
+
+        <div>
+          <label>Name</label>
+          <span id="nameOutput">---</span>
+        </div>
+
+        <div>
+          <label>Cell Type</label>
+          <span id="cellOutput">---</span>
+        </div>
+
+        <div>
+          <label>Visit Date</label>
+          <span>2026-06-24</span>
+        </div>
+
+        <div>
+          <label>Reason</label>
+          <span id="reasonOutput">---</span>
+        </div>
+
+        <div>
+          <label>Valid Until</label>
+          <span>UNLIMITED</span>
+        </div>
+
+      </div>
+
+      <div class="stamp">
+        CERTIFIED CELLMATE
+      </div>
+
+    </div>
+
+    <button id="downloadBtn">
+      Print
+    </button>
+
+  </div>
+  
+</div>
+  
+<div id="approvalModal" class="approval-modal hidden">
+
+  <div class="approval-box">
+
+    <div class="approval-icon">
+      ✓
+    </div>
+
+    <h2>Visitor Pass Approved</h2>
+
+    <p>
+      Your Cellmate Visitor Pass has been issued.
+      <br><br>
+      Proceed to the Cellmate Bulletin and leave a birthday message for Sunoo ♡
+    </p>
+
+    <button id="goBulletinBtn">
+      Go to Bulletin
+    </button>
+
+  </div>
+
+</div>
+  
+  
+<section class="bulletin-section">
+
+  <h2>Cellmate Bulletin</h2>
+
+  <p class="bulletin-subtitle">
+    Leave a birthday message for Sunoo and read notes from fellow cellmates ♡
+  </p>
+
+  <div class="padlet-wrapper">
+
+    <iframe
+      src="https://padlet.com/artchivebydifs/SunooCellmateMessages"
+      allow="camera;microphone;geolocation;display-capture;clipboard-write">
+    </iframe>
+
+  </div>
+
+</section>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="script.js"></script>
+
+      <script src="game.js" defer></script>
+
+  <script>
+  // Fungsi untuk memblokir shortcut tertentu dan F12
+  function disableShortcut(e) {
+    const key = e.key.toLowerCase();
+    const blockedKeys = ['u', 'c', 's', 'a', 'p'];
+
+    if (
+      (e.ctrlKey && blockedKeys.includes(key)) ||                 // Ctrl+U, C, S, A, P
+      (e.ctrlKey && e.shiftKey && key === 'i') ||                // Ctrl+Shift+I
+      (key === 'f12')                                             // F12
+    ) {
+      e.preventDefault();
+      alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+      return false;
+    }
+  }
+
+  // Blokir shortcut dan F12
+  document.addEventListener('keydown', disableShortcut);
+
+  // Blokir klik kanan
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+  });
+</script>
+  
+            <!-- Tambahkan ini untuk Vercel Analytics -->
+      <script defer src="/_vercel/insights/script.js"></script>
+
+            <!-- Tambahkan ini untuk Vercel Speed Insight -->
+      <script defer src="/_vercel/speed-insights/script.js"></script>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RBHQDQY3EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RBHQDQY3EW');
+</script>
+
+</body>
+</html>

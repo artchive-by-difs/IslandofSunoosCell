@@ -1,0 +1,709 @@
+/* General Styles */
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.left, .right {
+    width: 48%;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #6B4D38;
+}
+
+/* Styling untuk tombol */
+button {
+    padding: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #B8D7CC; /* Warna latar belakang tombol saat enable */
+    color: #775C56; /* Warna teks tombol */
+    border: 2px solid #775C56;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 13px;
+    font-family: 'Pixelify Sans', sans-serif;
+    transition: background-color 0.3s ease; /* Animasi saat hover */
+    transform: scale(0.99);
+}
+
+@keyframes waveEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Gaya tombol saat hover (saat kursor berada di atas tombol) */
+button:hover {
+    background-color: #FFEEB6; /* Mengubah warna latar belakang saat hover */
+    animation: waveEffect 0.5s ease-in-out;
+   box-shadow: 0 4px 12px rgba(107, 77, 66, 0.6); /* Deep rose-red glow */
+}
+
+/* Tombol yang dinonaktifkan */
+button:disabled {
+    background-color: #8F8A85; /* Warna latar belakang tombol saat dinonaktifkan */
+    color: #FFEEB6; /* Mengubah warna teks tombol saat disabled */
+    cursor: not-allowed; /* Menunjukkan bahwa tombol tidak bisa diklik */
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.0);
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+/* Modal Box - Adjust width */
+.modal-content {
+    background-color: #DFF5EE;
+
+    background-image:
+        radial-gradient(rgba(142, 126, 102, 0.35) 10px, transparent 10px),
+        radial-gradient(rgba(142, 126, 102, 0.35) 10px, transparent 10px);
+
+    background-size: 70px 70px;
+    background-position: 0 0, 35px 35px;
+
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Hover efek untuk tombol X */
+.close:hover {
+    color: red;
+}
+
+
+/* Kontainer untuk controls dan kamera */
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Pusatkan secara vertikal */
+    align-items: center; /* Pusatkan secara horizontal */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 300vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), red; /* Gradasi warna di sisi kiri */
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    z-index: 10;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.cameraContainer {
+    position: relative;
+    width: 300px; /* Sesuaikan dengan ukuran overlay */
+    height: 200px; /* Sesuaikan dengan ukuran overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border: 5px solid #FFEEB6;
+    border-radius: 5px;
+}
+
+#camera {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* Mengisi seluruh container tanpa distorsi */
+    transform: scaleX(-1); /* Membalik tampilan kamera */
+}
+
+#frameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar klik tidak mengenai overlay */
+    z-index: 10; /* Pastikan overlay selalu di atas */
+}
+
+.cameraContainer camera {
+    width: 300px;
+    height: 200px;
+}
+
+
+/* Styling untuk foto preview */
+.previewContainer {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #B9AFA1; 
+    border-radius: 1px;
+    background-color: #fff; /* Warna latar belakang putih agar lebih kontras */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek floating */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px ; /* Sesuaikan lebar dengan foto */
+}
+
+.previewPhotos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+}
+
+.previewPhotos img {
+  width: 300px; /* Pastikan lebar gambar menyesuaikan dengan lebar container */
+  height: 200px; /* Menjaga aspek rasio gambar */
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 0px;  /* Memberikan sedikit jarak antar foto */
+  border-radius: 0px;   /* Membuat sudut gambar sedikit melengkung */
+ object-fit: cover;
+}
+
+/* Overlay untuk hasil print */
+.previewPhotos .frameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* Styling untuk tombol template layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.layout h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  row-gap: 2px;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+}
+
+.button-group button {
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* Tombol download */
+.download-container {
+    margin-top: 20px;
+    width: 100px;
+    margin: auto;
+}
+
+/* Layout kanan */
+.right {
+    margin-left: 35%;  /* Memberikan ruang di sebelah kiri agar tidak tertutupi layout kiri yang fixed */
+    width: 60%;        /* Sesuaikan lebar layout kanan */
+    padding: 20px;
+    min-height: 100vh; /* Memastikan layout kanan memiliki minimal tinggi penuh layar */
+    position: relative; /* Pastikan layout kanan tidak terpengaruh posisi fixed layout kiri */
+    overflow-y: auto;  /* Memungkinkan scroll vertikal jika konten lebih tinggi dari layar */
+    background-color: #fff; /* Memberikan warna latar belakang */
+      overflow-x: auto; /* Tambahkan horizontal scrolling */
+    white-space: nowrap; /* Mencegah konten turun ke bawah */
+}
+
+.right .content {
+    display: inline-block; /* Pastikan konten tidak wrap */
+    min-width: 100%; /* Pastikan ada minimal lebar */
+}
+
+
+/* Layout kiri (left) yang tetap fixed */
+.left {
+    position: fixed;   /* Layout kiri fixed */
+    top: 0;
+    left: 0;
+    width: 30%;         /* Lebar layout kiri */
+    height: 100vh;      /* Tinggi penuh layar */
+    background-color: #B9AFA1;
+background-image:
+  radial-gradient(#F8F4E8 5px, transparent 5px),
+  radial-gradient(#F8F4E8 5px, transparent 5px);
+background-position: 0 0, 16px 16px;
+background-size: 32px 32px;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    z-index: 10;        /* Pastikan elemen kiri di atas layout kanan */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Opsional: menambahkan bayangan untuk efek pemisah */
+}
+  
+
+/* Default layout for desktop */
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    background-color: #fff;
+    padding: 0px;
+    margin: auto;
+    padding-left: 5%; /* atau 400px kalau kamu pakai min-width */
+    padding-bottom: 20px;
+    box-sizing: border-box; /* biar padding nggak nambahin width */
+}
+
+.left {
+    width: 30%;
+    min-width: 400px; /* Set minimum width agar tidak terlalu sempit */
+    height: 100vh;
+    background-color: #FFD3D4; /* ganti warna sisi kiri */
+    border-right: 1px solid #ccc;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.right {
+    width: 70%;
+    padding: 20px;
+    margin-left: 30%; /* Adjusted to account for fixed left panel */
+    overflow-x: auto; /* Tambahkan horizontal scrolling */
+    white-space: normal;
+}
+
+.right .content {
+    display: inline-block; /* Pastikan konten tidak wrap */
+    min-width: 100%; /* Pastikan ada minimal lebar */
+}}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .left {
+        width: 100%;
+        min-width: 310px; /* Set minimum width agar tidak terlalu sempit */
+        height: auto;
+        border-right: none;
+        padding: 10px;
+        position: relative; /* Remove fixed positioning on mobile */
+        overflow-y: visible; /* Allow normal scrolling */
+    }
+
+    .right {
+        width: 100%;
+        padding: 10px;
+        margin-left: 0; /* Remove margin to align properly */      
+      overflow-x: auto; /* Tambahkan horizontal scrolling */
+    white-space: nowrap; /* Mencegah konten turun ke bawah */
+}
+
+.right .content {
+    display: inline-block; /* Pastikan konten tidak wrap */
+    min-width: 100%; /* Pastikan ada minimal lebar */
+}
+    }
+}
+
+.cameraContainer {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#camera {
+    width: 300px;
+    height: 200px;
+    transform: scaleX(-1); /* Mirroring effect */
+    object-fit: cover; /* Prevents distortion */
+}
+
+#frameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Supaya klik tidak mengenai frame */
+    z-index: 10; /* Pastikan berada di atas video */
+}
+
+
+/* Gambar hasil foto supaya ada di tengah */
+#finalPhotos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* Susun hasil foto ke bawah */
+    justify-content: center; /* Foto ada di tengah */
+    align-items: center;
+    width: 100%;
+}
+
+.modal {
+   display: none; /* Awalnya disembunyikan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Efek gelap transparan */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #e6f7f1; /* ganti warna background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Gaya tombol "X" */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.close: hover {
+    color: red;
+}
+
+
+/* Untuk layar lebih besar (desktop), buat lebih lebar */
+@media screen and (min-width: 1024px) {
+    .modal-content {
+        max-width: 800px; /* Lebih lebar di layar besar */
+    }
+}
+
+/* Untuk layar kecil (mobile), modal bisa di-scroll kalau terlalu tinggi */
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 95%; /* Lebih ramping di layar kecil */
+        max-height: 70vh; /* Biar tetap pas dan bisa di-scroll */
+    }
+}
+
+.result-image {
+    object-fit: cover; /* Jaga proporsi */
+    max-width: 100%; /* Pastikan tidak lebih besar dari container */
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Ubah layout menjadi vertikal */
+        width: 100%;
+        padding: 0px;
+    }
+
+    .left {
+        width: 100%;
+        min-width: 310px; /* Pastikan tidak terlalu sempit */
+        height: auto; /* Biarkan tinggi menyesuaikan konten */
+        border-right: none; /* Hapus border kanan */
+        padding: 10px;
+        position: relative; /* Hilangkan posisi fixed */
+        overflow-y: visible; /* Biarkan bisa di-scroll */
+    }
+
+    .right {
+        width: 100%;
+        padding: 10px;
+        margin-left: 0; /* Hapus margin kiri agar tidak ada jarak */
+        min-height: auto; /* Biarkan tinggi mengikuti konten */
+        overflow-x: hidden; /* Hindari scroll horizontal */
+    }
+}
+
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px; /* Ukuran besar agar terlihat */
+    font-weight: bold;
+    color: white; /* Warna putih untuk kontras */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); /* Efek bayangan agar lebih jelas */
+    z-index: 10; /* Pastikan ada di atas kamera */
+    display: none; /* Awalnya sembunyikan */
+}
+
+.controls {
+    display: flex; /* Membuat elemen sejajar secara horizontal */
+    justify-content: center; /* Pusatkan elemen secara horizontal */
+    align-items: center; /* Pusatkan elemen secara vertikal */
+    gap: 15px; /* Beri jarak antar elemen */
+    width: 100%; /* Pastikan elemen mengisi lebar parent */
+    margin-top: 15px; /* Beri sedikit ruang ke atas */
+}
+
+.brightness-container,
+.cameraContainer,
+.contrast-container, .saturation-container, .blur-container {
+    display: flex;
+    flex-direction: column; /* Agar teks dan slider tersusun horizontal */
+    align-items: center; /* Pusatkan elemen dalam masing-masing container */;
+    color: #685652;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 13px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      to right,
+      #FFEEB6 0%,
+      #FFEEB6 var(--value),
+      #F8F4E8 var(--value),
+      #F8F4E8 100%
+    );
+
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+
+  width: 28px;
+  height: 28px;
+
+  background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2397C0B3' d='M23.6 4C20.8 4 18.5 5.4 16 8c-2.5-2.6-4.8-4-7.6-4C3.8 4 0 7.8 0 12.4 0 20.2 16 28 16 28s16-7.8 16-15.6C32 7.8 28.2 4 23.6 4z'/%3E%3C/svg%3E");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #9F1D35; /* Warna thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+// style video youtube
+#mv-section {
+  margin: 20px;
+  margin-left: 35%;
+}
+
+#toggle-mv {
+  padding: 8px 10px;
+  background-color: #FFEEB6;
+  color: #9B8843;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  position: sticky;
+  top: 10px;
+  z-index: 5;
+}
+
+#mv-gallery {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.video-wrapper iframe {
+  border-radius: 8px;
+}
+
+/* For mobile devices (width less than 1024px), adjust layout */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        width: 100%;
+        padding: 0px;
+    }
+
+    .left {
+        width: 100%;           /* Take full width */
+        min-width: 310px;      /* Ensure a minimum width */
+        height: auto;          /* Allow height to adjust based on content */
+        position: relative;    /* Position it normally */
+        border-right: none;    /* Remove border */
+        padding: 10px;
+        overflow-y: visible;   /* Allow scrolling if necessary */
+    }
+
+    .right {
+        width: 100%;           /* Take full width */
+        padding: 10px;
+        margin-left: 0;        /* Remove margin on smaller screens */
+        overflow-x: auto;      /* Allow horizontal scrolling */
+        white-space: nowrap;   /* Prevent content from wrapping */
+    }
+
+    .right .content {
+        display: inline-block;
+        min-width: 100%;        /* Ensure full width of content */
+    }
+}
+
+#frameSelection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#frameSelection button {
+  flex: 0 0 80px;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.2s ease-in-out;
+  margin-top: 0px;
+}
+
+#frameSelection button:hover {
+  background-color: #FFEEB6;
+  border-color: #C2AE61;
+  color: #C2AE61; /* valid hex color */
+}
+
+/* Tombol yang dinonaktifkan */
+#frameSelection button:disabled {
+    background-color: #F8F4E8; /* Warna latar belakang tombol saat dinonaktifkan */
+    color: #B8AA90; /* Mengubah warna teks tombol saat disabled */
+    cursor: not-allowed; /* Menunjukkan bahwa tombol tidak bisa diklik */
+}
+
+#selectA {
+  background-color: #E8A3A8;
+  border-color: #A8646D;
+  color: #A8646D; /* valid hex color */
+}
+
+#selectB {
+  background-color: #97C0B3;
+  border-color: #577970;
+  color: #577970; /* valid hex color */
+}
+
+#selectC {
+  background-color: #775C56;
+  border-color: #53403C;
+  color: #53403C; /* valid hex color */
+}
+
+.popup-frame-container {
+  display: grid;
+  grid-template-rows: repeat(5, auto);   /* 5 baris */
+  grid-template-columns: repeat(3, auto); /* 3 kolom */
+  grid-auto-flow: column; /* isi dari atas ke bawah, lalu pindah ke kolom berikutnya */
+  gap: 5px;
+  row-gap: 0px;
+  justify-content: center; /* center semua di tengah container */
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.popup-frame-container img {
+  width: 100%;
+  height: auto;
+}
+
+.controls button {
+  font-weight: bold;
+  margin-top: 5px;
+}

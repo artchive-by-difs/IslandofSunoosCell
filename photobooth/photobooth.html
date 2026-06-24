@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island of Sunoo's Cells - Photobooth</title>
+    <link rel="stylesheet" href="photobooth.css">
+   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+      
+        <!-- Kiri: Camera Preview & Buttons -->
+        <div class="left">
+          <div style="display: flex; justify-content: center; align-items: center; height: auto; flex-direction: column;">
+    <img src="https://i.ibb.co.com/21F49PFt/header-3.png" 
+         alt="header" 
+         style="width: 100%;max-width: 280px; height: auto;">
+          </div>
+          <div class="brightness-container">
+        <label for="brightness">brightness</label>
+        <input type="range" id="brightness" min="50" max="200" value="100"> </div>
+                  
+          <div class="contrast-container">
+        <label for="contrast">contrast</label>
+        <input type="range" id="contrast" min="50" max="200" value="100"></div>
+                    
+            <div class="cameraContainer">
+                <video id="camera" width="300" height="200" autoplay></video>
+                <img id="frameOverlay">
+                <p id="countdown"></p>
+                </div>
+            <div id="frameSelection">
+  <button id="selectA">sorbae</button>
+  <button id="selectB">minteu</button>
+  <button id="selectC">choco</button>
+</div>
+            <div class="controls">
+                <button id="startBtn">read guide!</button>
+                <button id="snapBtn" disabled>take a photo</button>
+            </div>
+
+            <!-- Template color selection moved here -->
+            <div class="layout">
+                <h2>let's try this!</h2>
+               <div class="button-group">
+                <button id="a1TemplateBtn">take another photo!</button>
+                <button id="a2TemplateBtn">bulletin board!</button>
+                <button id="a3TemplateBtn">song of the day!</button>
+                <button id="a4TemplateBtn">visitor pass!</button>
+               </div>
+            </div>
+        </div>
+            
+           
+        <!-- Kanan: Hasil Foto dan Preview -->
+        <div class="right">
+          <div id="mv-section">
+  <button id="toggle-mv"> thanks for being with sunoo all this time<br>>>> tap here to rewind memories <<<</button>
+
+  <div id="mv-gallery" style="display: none;">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/4DENhuTT7LU?si=EDDNjDhqnt00LbS_" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/2jMoYEVyeI0?si=d4PjtcsiUJx3GSGV" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/N5jRLujKlqE?si=MWStx8Njd0jytvwB" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/yFFLxdhZcUk?si=RQeV9U_nic3laKlP" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/mNsVwfekQFs?si=q6mlvG11aFNAq4zd" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/PCuszoHLkOE?si=2MoJyncMDS9ZP8C9" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/p-DgGQxbXX4?si=FEx0XE09B2ZsCTVB" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>    
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/5LMT4fnDzyo?si=t8urGQdw8pCajjFY" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/WzmPzUsXwtU?si=mQEOt2IoD5wCtIqf" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/Xnjc4i9kVnY?si=EZZlayJyrMBrnQcX" width="250" height="auto" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+            <div class="resultContainer">
+                <h2>certified ddeonu cellmate</h2>
+                <div id="finalPhotos" class="finalPhotos"></div>
+            </div>
+
+            <!-- Tombol download tetap di kanan -->
+            <div class="download-container">
+                <button id="downloadBtn" disabled>print!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="photobooth.js" defer></script>
+     
+          <!-- Modal -->
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <h2>💌 Welcome, Cellmate! <3</h2>
+
+<p>
+You've arrived at the Island of Sunoo's Cells! 🏝️🌥️<br>
+Before exploring the island, please read this quick guide.
+</p>
+
+<p>₁ ✧ Best viewed on desktop 🖥️</p>
+
+<p>
+₂ ✧ On mobile/tablet? 📱<br>
+Switch to desktop mode and landscape for the best experience.
+</p>
+
+<p>
+₃ ✧ Choose your favorite frame — Sorbae, Minteu, or Choco 🍨<br>
+Please wait until all previews have loaded.
+</p>
+
+<p>
+₄ ✧ Tap "Take a Photo" 📸<br>
+4 frames • 3-second countdown • 1 shot only, so be ready!<br>
+Don't worry — you can start a new session anytime.
+</p>
+
+<p>₅ ✧ Download with "Print!" 💾✨</p>
+
+<p>
+₆ ✧ Explore the island and have fun, Cellmate!🪽
+</p>
+        <div class="popup-frame-container">
+  <!-- Frame A -->
+  <img src="https://i.ibb.co.com/6JFZv3nB/frame-A-01.png" alt="frameA_1">
+  <img src="https://i.ibb.co.com/27VkKz6j/frame-A-02.png" alt="frameA_2">
+  <img src="https://i.ibb.co.com/F4ZNYsL0/frame-A-03.png" alt="frameA_3">
+  <img src="https://i.ibb.co.com/vCh6cV5q/frame-A-04.png" alt="frameA_4">
+  <img src="https://i.ibb.co.com/nNwVFNkr/frame-A-05.png" alt="frameA_5">
+
+  <!-- Frame B -->
+  <img src="https://i.ibb.co.com/DHgNMC71/frame-B-01.png" alt="frameB_1">
+  <img src="https://i.ibb.co.com/RkxX4ML2/frame-B-02.png" alt="frameB_2">
+  <img src="https://i.ibb.co.com/fVXdpkSR/frame-B-03.png" alt="frameB_3">
+  <img src="https://i.ibb.co.com/sGXNrzQ/frame-B-04.png" alt="frameB_4">
+  <img src="https://i.ibb.co.com/FkLnTkDr/frame-B-05.png" alt="frameB_5">
+
+  <!-- Frame C -->
+  <img src="https://i.ibb.co.com/5xT1bFGL/frame-C-01.png" alt="frameC_1">
+  <img src="https://i.ibb.co.com/F4f5K5cq/frame-C-02.png" alt="frameC_2">
+  <img src="https://i.ibb.co.com/MxZdkcv0/frame-C-03.png" alt="frameC_3">
+  <img src="https://i.ibb.co.com/1G5K6yr2/frame-C-04.png" alt="frameC_4">
+  <img src="https://i.ibb.co.com/twysjnbQ/frame-C-05.png" alt="frameC_5">
+</div>
+        <p>
+Capture your favorite memories and earn your title as a<br>
+✨ Certified Cellmate ✨
+<br><br>
+💛 Happy Sunoo Day! 💛<br>
+#IslandOfSunoosCells
+</p>
+        <button id="confirmBtn">Got it!</button>
+    </div>
+</div>
+
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <div id="yt-player" style="width:0; height:0; overflow:hidden;"></div>
+       
+<script>
+  // Fungsi untuk memblokir shortcut tertentu dan F12
+  function disableShortcut(e) {
+    const key = e.key.toLowerCase();
+    const blockedKeys = ['u', 'c', 's', 'a', 'p'];
+
+    if (
+      (e.ctrlKey && blockedKeys.includes(key)) ||                 // Ctrl+U, C, S, A, P
+      (e.ctrlKey && e.shiftKey && key === 'i') ||                // Ctrl+Shift+I
+      (key === 'f12')                                             // F12
+    ) {
+      e.preventDefault();
+      alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+      return false;
+    }
+  }
+
+  // Blokir shortcut dan F12
+  document.addEventListener('keydown', disableShortcut);
+
+  // Blokir klik kanan
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("⚠️ Hi there, curious one!\n\n" +
+      "This site is a personal project (still a work in progress).\n" +
+      "Please don’t inspect, copy, or... judge the code (lol).\n" + "Thanks for understanding.\n\n" +
+      "Anything? Feel free to DM @sunoofdawn on X");
+  });
+</script>
+        
+            <!-- Tambahkan ini untuk Vercel Analytics -->
+      <script defer src="/_vercel/insights/script.js"></script>
+
+            <!-- Tambahkan ini untuk Vercel Speed Insight -->
+      <script defer src="/_vercel/speed-insights/script.js"></script>
+
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RBHQDQY3EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RBHQDQY3EW');
+</script>
+       
+</body>
+</html>
