@@ -14,30 +14,30 @@ const selectC = document.getElementById("selectC");
 const frameSets = {
   A: {
     frames: [
-    "https://i.ibb.co.com/6JFZv3nB/frame-A-01.png",
-    "https://i.ibb.co.com/27VkKz6j/frame-A-02.png",
-    "https://i.ibb.co.com/F4ZNYsL0/frame-A-03.png",
-    "https://i.ibb.co.com/vCh6cV5q/frame-A-04.png",
+    "https://i.ibb.co.com/1tHVMFCR/frame-A-01.png",
+    "https://i.ibb.co.com/4nLrRYjD/frame-A-02.png",
+    "https://i.ibb.co.com/FbG2CQdj/frame-A-03.png",
+    "https://i.ibb.co.com/VWTkj8cC/frame-A-04.png",
     ],
-    footer: "https://i.ibb.co.com/nNwVFNkr/frame-A-05.png"
+    footer: "https://i.ibb.co.com/TB2fVdV9/frame-A-05.png"
   },
   B: {
     frames: [
-    "https://i.ibb.co.com/DHgNMC71/frame-B-01.png",
-    "https://i.ibb.co.com/RkxX4ML2/frame-B-02.png",
-    "https://i.ibb.co.com/fVXdpkSR/frame-B-03.png",
-    "https://i.ibb.co.com/sGXNrzQ/frame-B-04.png",
+    "https://i.ibb.co.com/0VZDRj9y/frame-B-01.png",
+    "https://i.ibb.co.com/VcHCcCkf/frame-B-02.png",
+    "https://i.ibb.co.com/4nQtc5n9/frame-B-03.png",
+    "https://i.ibb.co.com/BHtfjs4f/frame-B-04.png",
     ],
-    footer: "https://i.ibb.co.com/FkLnTkDr/frame-B-05.png"
+    footer: "https://i.ibb.co.com/fGpvpq7V/frame-B-05.png"
   },
   C: {
     frames: [
-    "https://i.ibb.co.com/5xT1bFGL/frame-C-01.png",
-    "https://i.ibb.co.com/F4f5K5cq/frame-C-02.png",
-    "https://i.ibb.co.com/MxZdkcv0/frame-C-03.png",
-    "https://i.ibb.co.com/1G5K6yr2/frame-C-04.png",
+    "https://i.ibb.co.com/wZW5kycX/frame-C-01.png",
+    "https://i.ibb.co.com/m73b44W/frame-C-02.png",
+    "https://i.ibb.co.com/M5xRB3Ns/frame-C-03.png",
+    "https://i.ibb.co.com/wFY3Crsp/frame-C-04.png",
     ],
-    footer: "https://i.ibb.co.com/twysjnbQ/frame-C-05.png"
+    footer: "https://i.ibb.co.com/VcX7pGTm/frame-C-05.png"
   },
 };
 
